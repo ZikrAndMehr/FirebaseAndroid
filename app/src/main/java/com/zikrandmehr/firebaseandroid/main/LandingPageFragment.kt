@@ -1,4 +1,4 @@
-package com.zikrandmehr.firebaseandroid.landing_page
+package com.zikrandmehr.firebaseandroid.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

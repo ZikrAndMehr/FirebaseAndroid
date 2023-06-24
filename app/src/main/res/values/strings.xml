@@ -36,5 +36,15 @@
     <string name="remote_config_title">Remote Config</string>
     <string name="remote_config_desc">Firebase Remote Config is a cloud service that lets you change the behavior and appearance of your app without requiring users to download an app update.</string>
 
+    <!-- AuthenticationFragment -->
+    <string name="authentication">Authentication</string>
+    <string name="uid">UID:</string>
+    <string name="auth_email">Email:</string>
+    <string name="anonymous">Anonymous:</string>
+    <string name="email_verified">Email Verified:</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="delete_account">Delete Account</string>
 
 </resources>

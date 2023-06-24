@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/landingPageFragment"
-        android:name="com.zikrandmehr.firebaseandroid.landing_page.LandingPageFragment"
+        android:name="com.zikrandmehr.firebaseandroid.main.LandingPageFragment"
         android:label="fragment_landing_page"
         tools:layout="@layout/fragment_landing_page" >
         <action
@@ -20,26 +20,22 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.zikrandmehr.firebaseandroid.landing_page.sign_in.SignInFragment"
+        android:name="com.zikrandmehr.firebaseandroid.main.sign_in.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
-            android:id="@+id/action_signInFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_signInFragment_to_home_nav"
+            app:destination="@id/home_nav" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.zikrandmehr.firebaseandroid.landing_page.sign_up.SignUpFragment"
+        android:name="com.zikrandmehr.firebaseandroid.main.sign_up.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
-            android:id="@+id/action_signUpFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_signUpFragment_to_home_nav"
+            app:destination="@id/home_nav" />
     </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.zikrandmehr.firebaseandroid.landing_page.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+    <include app:graph="@navigation/home_nav" />
 
 </navigation>

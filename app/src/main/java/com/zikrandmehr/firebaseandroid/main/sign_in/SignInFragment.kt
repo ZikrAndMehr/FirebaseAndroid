@@ -1,4 +1,4 @@
-package com.zikrandmehr.firebaseandroid.landing_page.sign_up
+package com.zikrandmehr.firebaseandroid.main.sign_in
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,19 +10,19 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.zikrandmehr.firebaseandroid.R
-import com.zikrandmehr.firebaseandroid.databinding.FragmentSignUpBinding
+import com.zikrandmehr.firebaseandroid.databinding.FragmentSignInBinding
 import com.zikrandmehr.firebaseandroid.utils.navigateWithDefaultAnimation
 
-class SignUpFragment : Fragment() {
+class SignInFragment : Fragment() {
 
-    private var _binding: FragmentSignUpBinding? = null
+    private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        _binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -33,32 +33,34 @@ class SignUpFragment : Fragment() {
 
     private fun setupViews() {
         binding.apply {
-            toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
-            btnSignUp.setOnClickListener { signUp() }
+            toolbar.root.setNavigationOnClickListener { findNavController().navigateUp() }
+            etEmail.setText("android01@new.com")
+            etPassword.setText("Welcome1.")
+            btnSignIn.setOnClickListener { signIn() }
         }
     }
 
-    private fun signUp() {
+    private fun signIn() {
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
         if (email.isBlank() || password.isBlank()) return
 
-        Firebase.auth.createUserWithEmailAndPassword(email, password)
+        Firebase.auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) navigateToHomeFragment()
-                else showSignUpErrorAlert()
+                else showSignInErrorAlert()
             }
     }
 
     private fun navigateToHomeFragment() {
-        val directions = SignUpFragmentDirections.actionSignUpFragmentToHomeFragment()
+        val directions = SignInFragmentDirections.actionSignInFragmentToHomeNav()
         findNavController().navigateWithDefaultAnimation(directions)
     }
 
-    private fun showSignUpErrorAlert() {
+    private fun showSignInErrorAlert() {
         val builder = AlertDialog.Builder(requireContext())
 
-        builder.setMessage(getText(R.string.sign_up_error))
+        builder.setMessage(getText(R.string.sign_in_error))
         builder.setPositiveButton(getText(R.string.ok)) { dialog, _ ->
             dialog.dismiss()
         }

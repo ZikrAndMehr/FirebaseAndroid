@@ -1,14 +1,15 @@
-package com.zikrandmehr.firebaseandroid.landing_page.home
+package com.zikrandmehr.firebaseandroid.main.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.zikrandmehr.firebaseandroid.R
 import com.zikrandmehr.firebaseandroid.databinding.FragmentHomeBinding
+import com.zikrandmehr.firebaseandroid.utils.navigateWithDefaultAnimation
 
 class HomeFragment : Fragment() {
 
@@ -92,6 +93,17 @@ class HomeFragment : Fragment() {
     )
 
     private fun navigateToAuthenticationFragment() {
-        //TODO 
+        val directions = HomeFragmentDirections.actionHomeFragmentToAuthenticationFragment()
+        findNavController().navigateWithDefaultAnimation(directions)
+        resetStatusBarColor()
+    }
+
+    private fun resetStatusBarColor() {
+        val window = requireActivity().window
+        val defaultStatusBarColor = ContextCompat.getColor(requireContext(), android.R.color.transparent)
+        val defaultNavigationBarColor = ContextCompat.getColor(requireContext(), android.R.color.black)
+
+        window.statusBarColor = defaultStatusBarColor
+        window.navigationBarColor = defaultNavigationBarColor
     }
 }

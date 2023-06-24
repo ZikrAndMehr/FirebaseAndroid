@@ -5,18 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".landing_page.sign_in.SignInFragment">
+    tools:context=".main.sign_in.SignInFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <include
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:navigationIconTint="?attr/colorPrimary" />
+        layout="@layout/material_toolbar"/>
 
     <TextView
         android:id="@+id/tv_sign_in"
@@ -124,17 +117,11 @@
 
     <Button
         android:id="@+id/btn_sign_in"
+        style="@style/MainButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_triple"
-        android:layout_marginEnd="@dimen/dimen_triple"
         android:layout_marginBottom="@dimen/dimen_sextuple"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
         android:text="@string/sign_in"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

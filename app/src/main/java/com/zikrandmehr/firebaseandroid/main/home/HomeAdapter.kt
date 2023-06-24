@@ -1,4 +1,4 @@
-package com.zikrandmehr.firebaseandroid.landing_page.home
+package com.zikrandmehr.firebaseandroid.main.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

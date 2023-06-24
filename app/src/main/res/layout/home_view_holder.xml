@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dimen_double"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="@null">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_firebase"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="@dimen/dimen_triple"
+            android:layout_marginTop="@dimen/dimen_single"
+            android:padding="@dimen/dimen_double"
+            app:layout_constraintEnd_toStartOf="@+id/iv_function"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_firebase" />
+
+        <ImageView
+            android:id="@+id/iv_function"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/dimen_single"
+            android:layout_marginEnd="@dimen/dimen_triple"
+            android:padding="@dimen/dimen_half"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_firebase"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="@dimen/dimen_triple"
+            android:layout_marginTop="@dimen/dimen_single"
+            android:layout_marginEnd="@dimen/dimen_triple"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_firebase" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="124dp"
+            android:layout_marginStart="@dimen/dimen_triple"
+            android:layout_marginEnd="@dimen/dimen_triple"
+            android:layout_marginBottom="@dimen/dimen_single"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

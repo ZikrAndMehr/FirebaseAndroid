@@ -20,4 +20,21 @@
     <!-- SignInFragment -->
     <string name="sign_up_error">Something went wrong, please try again!</string>
 
+    //HomeFragment
+    <string name="auth_title">Authentication</string>
+    <string name="auth_desc">Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app.</string>
+    <string name="realtime_database_title">Realtime Database</string>
+    <string name="realtime_database_desc">Firebase Realtime Database is a cloud-hosted database. Data is stored as JSON and synchronized in realtime to every connected client.</string>
+    <string name="cloud_firestore_title">Cloud Firestore</string>
+    <string name="cloud_firestore_desc">Firebase Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud.</string>
+    <string name="storage_title">Storage</string>
+    <string name="storage_desc">Firebase Cloud Storage for Firebase is built for app developers who need to store and serve user-generated content, such as photos or videos.</string>
+    <string name="messaging_title">Messaging</string>
+    <string name="messaging_desc">Firebase Cloud Messaging (FCM) is a cross-platform messaging solution that lets you reliably send messages at no cost.</string>
+    <string name="crashlytics_title">Crashlytics</string>
+    <string name="crashlytics_desc">Firebase Crashlytics is a lightweight, realtime crash reporter that helps you track, prioritize, and fix stability issues that erode your app quality.</string>
+    <string name="remote_config_title">Remote Config</string>
+    <string name="remote_config_desc">Firebase Remote Config is a cloud service that lets you change the behavior and appearance of your app without requiring users to download an app update.</string>
+
+
 </resources>

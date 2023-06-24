@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "58275964535",
+    "project_id": "my-firebase-2023",
+    "storage_bucket": "my-firebase-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58275964535:android:59751aa5f2f623947c8872",
+        "android_client_info": {
+          "package_name": "com.zikrandmehr.firebaseandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58275964535-4pvg05rk2sl6t0sj3r88d8hvkaosh0gc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVMj_LvNVnTvlmR6zK8mqoQUnRFEkCH7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58275964535-4pvg05rk2sl6t0sj3r88d8hvkaosh0gc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "58275964535-6c1en64gdtuuv682isncvl135h4ntqi2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.zikrandmehr.FirebaseiOS"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

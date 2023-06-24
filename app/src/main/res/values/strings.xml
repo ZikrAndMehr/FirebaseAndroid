@@ -7,4 +7,17 @@
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
 
+    <!-- SignInFragment -->
+    <string name="email">Email</string>
+    <string name="email_hint">enter email</string>
+    <string name="password">Password</string>
+    <string name="password_hint">enter password</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_with_facebook">Sign in with Facebook</string>
+    <string name="sign_in_error">FirebaseAndroid do not recognize the email/password combo!</string>
+    <string name="ok">OK</string>
+
+    <!-- SignInFragment -->
+    <string name="sign_up_error">Something went wrong, please try again!</string>
+
 </resources>

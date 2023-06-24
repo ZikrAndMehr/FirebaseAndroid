@@ -1,6 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    //SafeArgsNavigation
+    id 'androidx.navigation.safeargs.kotlin'
+
+    //GoogleServices
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -54,5 +60,11 @@ dependencies {
     def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //FirebaseBoM
+    implementation platform('com.google.firebase:firebase-bom:32.1.1')
+
+    //FirebaseAuthentication
+    implementation 'com.google.firebase:firebase-auth-ktx'
 
 }

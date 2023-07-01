@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "58275964535-4id762vcja73enf0bcfsj1tqt9feisnv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zikrandmehr.firebaseandroid",
+            "certificate_hash": "325c93f291c19388ba602dc74aa7fe9e7c018eb3"
+          }
+        },
+        {
           "client_id": "58275964535-4pvg05rk2sl6t0sj3r88d8hvkaosh0gc.apps.googleusercontent.com",
           "client_type": 3
         }

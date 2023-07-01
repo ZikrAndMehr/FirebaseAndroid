@@ -36,6 +36,7 @@
             android:id="@+id/action_signUpFragment_to_home_nav"
             app:destination="@id/home_nav" />
     </fragment>
+
     <include app:graph="@navigation/home_nav" />
 
 </navigation>

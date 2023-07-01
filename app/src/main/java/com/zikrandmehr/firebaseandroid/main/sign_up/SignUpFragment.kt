@@ -43,8 +43,11 @@ class SignUpFragment : Fragment() {
         val password = binding.etPassword.text.toString()
         if (email.isBlank() || password.isBlank()) return
 
+        showProgressBar(true)
+
         Firebase.auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
+                showProgressBar(false)
                 if (it.isSuccessful) {
                     sendVerificationEmail()
                     navigateToHomeFragment()
@@ -67,9 +70,16 @@ class SignUpFragment : Fragment() {
         }
     }
 
+    private fun showProgressBar(show: Boolean) {
+        binding.progressBar.visibility = if (show) View.VISIBLE else View.GONE
+    }
+
     private fun navigateToHomeFragment() {
         val directions = SignUpFragmentDirections.actionSignUpFragmentToHomeNav()
-        findNavController().navigateWithDefaultAnimation(directions)
+        findNavController().navigateWithDefaultAnimation(
+            directions = directions,
+            popUpToDestinationId = R.id.landingPageFragment
+        )
     }
 
     private fun showSignUpErrorAlert() {

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen_double"
+    android:layout_marginEnd="@dimen/dimen_double"
+    android:layout_marginBottom="@dimen/dimen_double"
+    app:cardBackgroundColor="@color/gray"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="@null">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/dimen_single"
+            android:layout_marginTop="@dimen/dimen_single"
+            android:layout_marginEnd="@dimen/dimen_double"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/ib_delete_note"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_account_circle"
+                app:tint="?attr/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="clip_vertical"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_double"
+            android:layout_marginTop="@dimen/dimen_single"
+            android:layout_marginEnd="@dimen/dimen_double"
+            android:layout_marginBottom="@dimen/dimen_single"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ib_delete_note"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:gravity="center_vertical"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/ib_delete_note"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:background="@color/firebase_orange"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_delete"
+            app:tint="@color/white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

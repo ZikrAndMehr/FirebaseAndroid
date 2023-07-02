@@ -31,6 +31,11 @@ class SignUpFragment : Fragment() {
         setupViews()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
     private fun setupViews() {
         binding.apply {
             toolbar.root.setNavigationOnClickListener { findNavController().navigateUp() }

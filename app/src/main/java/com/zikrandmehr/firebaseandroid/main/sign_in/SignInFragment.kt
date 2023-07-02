@@ -4,7 +4,6 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.content.IntentSender
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -57,6 +56,11 @@ class SignInFragment : Fragment() {
         setupViews()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
     private fun setupViews() {
         binding.apply {
             toolbar.root.setNavigationOnClickListener { findNavController().navigateUp() }
@@ -98,9 +102,6 @@ class SignInFragment : Fragment() {
         signInClient.beginSignIn(oneTapRequest)
             .addOnSuccessListener { result ->
                 launchSignInWithGoogle(result.pendingIntent)
-            }
-            .addOnFailureListener {
-                Log.e("ONE_TAP_ERROR", it.toString())
             }
     }
 

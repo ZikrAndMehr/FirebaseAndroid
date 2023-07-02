@@ -14,11 +14,28 @@
         <action
             android:id="@+id/action_homeFragment_to_authenticationFragment"
             app:destination="@id/authenticationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_realtimeDatabaseFragment"
+            app:destination="@id/realtimeDatabaseFragment" />
     </fragment>
     <fragment
         android:id="@+id/authenticationFragment"
         android:name="com.zikrandmehr.firebaseandroid.main.home.authentication.AuthenticationFragment"
         android:label="fragment_authentication"
         tools:layout="@layout/fragment_authentication" />
+    <fragment
+        android:id="@+id/realtimeDatabaseFragment"
+        android:name="com.zikrandmehr.firebaseandroid.main.home.realtime_database.RealtimeDatabaseFragment"
+        android:label="fragment_realtime_database"
+        tools:layout="@layout/fragment_realtime_database" >
+        <action
+            android:id="@+id/action_realtimeDatabaseFragment_to_newNoteFragment"
+            app:destination="@id/newNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newNoteFragment"
+        android:name="com.zikrandmehr.firebaseandroid.main.home.realtime_database.new_note.NewNoteFragment"
+        android:label="fragment_new_note"
+        tools:layout="@layout/fragment_new_note" />
 
 </navigation>

@@ -12,7 +12,7 @@ class HomeItem(
     val onClick: () -> Unit
 )
 
-class HomeAdapter(val items: List<HomeItem>) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+class HomeAdapter(private val items: List<HomeItem>) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         val inflater = LayoutInflater.from(parent.context)

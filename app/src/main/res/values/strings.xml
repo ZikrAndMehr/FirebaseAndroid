@@ -21,7 +21,7 @@
     <!-- SignInFragment -->
     <string name="sign_up_error">Something went wrong, please try again!</string>
 
-    //HomeFragment
+    <!-- HomeFragment -->
     <string name="auth_title">Authentication</string>
     <string name="auth_desc">Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app.</string>
     <string name="realtime_database_title">Realtime Database</string>
@@ -47,5 +47,14 @@
     <string name="no">NO</string>
     <string name="sign_out">Sign Out</string>
     <string name="delete_account">Delete Account</string>
+
+    <!-- RealtimeDatabaseFragment -->
+    <string name="realtime_database">Realtime Database</string>
+
+    <!-- NewNoteFragment -->
+    <string name="new_note">New Note</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
 
 </resources>

@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
             imageView = R.drawable.fb_cloud_firestore,
             title = getText(R.string.cloud_firestore_title),
             description = getText(R.string.cloud_firestore_desc),
-            onClick = { navigateToAuthenticationFragment() }
+            onClick = { navigateToCloudFirestoreFragment() }
         ),
         HomeItem(
             imageView = R.drawable.fb_storage,
@@ -100,6 +100,12 @@ class HomeFragment : Fragment() {
 
     private fun navigateToRealtimeDatabaseFragment() {
         val directions = HomeFragmentDirections.actionHomeFragmentToRealtimeDatabaseFragment()
+        findNavController().navigateWithDefaultAnimation(directions)
+        resetStatusBarColor()
+    }
+
+    private fun navigateToCloudFirestoreFragment() {
+        val directions = HomeFragmentDirections.actionHomeFragmentToCloudFirestoreFragment()
         findNavController().navigateWithDefaultAnimation(directions)
         resetStatusBarColor()
     }

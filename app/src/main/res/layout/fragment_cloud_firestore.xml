@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.home.realtime_database.new_note.NewNoteFragment">
+    tools:context=".main.home.cloud_firestore.CloudFirestoreFragment">
 
     <include
         android:id="@+id/toolbar"
@@ -24,48 +24,84 @@
             android:animateLayoutChanges="true">
 
             <TextView
-                android:id="@+id/tv_new_note"
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_sextuple"
-                android:text="@string/new_note"
+                android:layout_marginTop="@dimen/dimen_triple"
+                android:text="@string/cloud_firestore"
                 android:textSize="28sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+                android:id="@+id/cl_quote"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dimen_double"
                 android:layout_marginTop="@dimen/dimen_sextuple"
                 android:background="@drawable/bg_white_bordered"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_new_note">
+                app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_quote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/dimen_single"
+                    android:layout_marginTop="@dimen/dimen_quadruple"
+                    app:cardBackgroundColor="@color/gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_quote"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:fontFamily="@font/marko_one"
+                            android:gravity="center"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/marko_one"
+                            android:gravity="center"
+                            android:textSize="17sp" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dimen_single"
-                    android:layout_marginVertical="@dimen/dimen_quadruple"
+                    android:layout_marginTop="@dimen/dimen_sextuple"
+                    android:layout_marginBottom="@dimen/dimen_quadruple"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@id/cv_quote">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_title"
+                        android:id="@+id/til_quote"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/dimen_quadruple"
-                        android:hint="@string/title">
+                        android:hint="@string/quote">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_title"
+                            android:id="@+id/et_quote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text|textAutoComplete" />
@@ -73,13 +109,14 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_description"
+                        android:id="@+id/til_author"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/description">
+                        android:hint="@string/author"
+                        app:passwordToggleEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_description"
+                            android:id="@+id/et_author"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text|textAutoComplete" />
@@ -94,17 +131,17 @@
                 android:id="@+id/space"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_save"
+                app:layout_constraintBottom_toTopOf="@+id/btn_update"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/cl_quote" />
 
             <Button
-                android:id="@+id/btn_save"
+                android:id="@+id/btn_update"
                 style="@style/MainButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/dimen_sextuple"
-                android:text="@string/save"
+                android:text="@string/update"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

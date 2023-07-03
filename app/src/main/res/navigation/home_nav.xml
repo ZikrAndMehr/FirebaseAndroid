@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_homeFragment_to_realtimeDatabaseFragment"
             app:destination="@id/realtimeDatabaseFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cloudFirestoreFragment"
+            app:destination="@id/cloudFirestoreFragment" />
     </fragment>
     <fragment
         android:id="@+id/authenticationFragment"
@@ -37,5 +40,10 @@
         android:name="com.zikrandmehr.firebaseandroid.main.home.realtime_database.new_note.NewNoteFragment"
         android:label="fragment_new_note"
         tools:layout="@layout/fragment_new_note" />
+    <fragment
+        android:id="@+id/cloudFirestoreFragment"
+        android:name="com.zikrandmehr.firebaseandroid.main.home.cloud_firestore.CloudFirestoreFragment"
+        android:label="fragment_cloud_firestore"
+        tools:layout="@layout/fragment_cloud_firestore" />
 
 </navigation>

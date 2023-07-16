@@ -16,6 +16,8 @@ import com.google.firebase.ktx.Firebase
 import com.zikrandmehr.firebaseandroid.R
 import com.zikrandmehr.firebaseandroid.databinding.FragmentAuthenticationBinding
 import com.zikrandmehr.firebaseandroid.utils.AppConstants
+import com.zikrandmehr.firebaseandroid.utils.navigateWithDefaultAnimation
+import com.zikrandmehr.firebaseandroid.utils.showErrorAlert
 
 class AuthenticationFragment : Fragment() {
 
@@ -58,6 +60,7 @@ class AuthenticationFragment : Fragment() {
     }
 
     private fun setupViews() {
+        //TODO
         binding.apply {
             toolbar.root.setNavigationOnClickListener { findNavController().navigateUp() }
             user?.let {
@@ -76,7 +79,6 @@ class AuthenticationFragment : Fragment() {
 
         if (isGoogleProvider()) Identity.getSignInClient(requireContext()).signOut()
 
-        navigateToLandingPageFragment()
     }
 
     private fun isGoogleProvider(): Boolean {
@@ -94,22 +96,17 @@ class AuthenticationFragment : Fragment() {
         user?.let {
             it.delete().addOnCompleteListener { task ->
                 if (task.isSuccessful) navigateToLandingPageFragment()
-                else showSignOutOrDeleteAccountErrorAlert()
+                else showErrorAlert(getText(R.string.sign_out_error))
             }
         }
     }
 
     private fun navigateToLandingPageFragment() {
-        //TODO navigation should be implemented
-    }
-
-    private fun showSignOutOrDeleteAccountErrorAlert() {
-        val builder = AlertDialog.Builder(requireContext())
-
-        builder.setMessage(getText(R.string.sign_in_error))
-        builder.setPositiveButton(getText(R.string.ok)) { dialog, _ ->
-            dialog.dismiss()
+        if (isAdded) {
+            findNavController().navigateWithDefaultAnimation(
+                resId = R.id.landingPageFragment,
+                popUpToDestinationId = R.id.home_nav
+            )
         }
-        builder.create().show()
     }
 }

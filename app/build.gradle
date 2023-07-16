@@ -11,12 +11,12 @@ plugins {
 
 android {
     namespace 'com.zikrandmehr.firebaseandroid'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.zikrandmehr.firebaseandroid"
         minSdk 29
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -68,7 +68,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     //GooglePlayServices
-    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
 
     //FirebaseRealtimeDatabase
     implementation("com.google.firebase:firebase-database-ktx")

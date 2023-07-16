@@ -8,13 +8,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
-import com.google.android.gms.auth.api.identity.GetSignInIntentRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.common.api.ApiException
@@ -25,18 +22,19 @@ import com.google.firebase.ktx.Firebase
 import com.zikrandmehr.firebaseandroid.R
 import com.zikrandmehr.firebaseandroid.databinding.FragmentSignInBinding
 import com.zikrandmehr.firebaseandroid.utils.navigateWithDefaultAnimation
+import com.zikrandmehr.firebaseandroid.utils.showErrorAlert
 
 class SignInFragment : Fragment() {
 
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var signInClient: SignInClient
+    private lateinit var oneTapClient: SignInClient
     private lateinit var auth: FirebaseAuth
 
-    private val signInLauncher =
+    private val oneTapLauncher =
         registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
-            handleSignInWithGoogleResult(result.data)
+            handleOneTapWithGoogleResult(result.data)
         }
 
     override fun onCreateView(
@@ -50,7 +48,7 @@ class SignInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        signInClient = Identity.getSignInClient(requireContext())
+        oneTapClient = Identity.getSignInClient(requireContext())
         auth = Firebase.auth
 
         setupViews()
@@ -62,6 +60,7 @@ class SignInFragment : Fragment() {
     }
 
     private fun setupViews() {
+        //TODO should be rechecked
         binding.apply {
             toolbar.root.setNavigationOnClickListener { findNavController().navigateUp() }
             etEmail.setText("android01@new.com")
@@ -72,23 +71,28 @@ class SignInFragment : Fragment() {
     }
 
     private fun signInWithGoogle() {
-        val currentUser = auth.currentUser
-        if (currentUser == null) {
-            oneTapSignIn()
-            Toast.makeText(requireContext(), "ONE_TAP", Toast.LENGTH_SHORT).show()
-        } else {
-            val signInRequest = GetSignInIntentRequest.builder()
-                .setServerClientId(getString(R.string.default_web_client_id))
-                .build()
+        val oneTapRequest = BeginSignInRequest.builder()
+            .setGoogleIdTokenRequestOptions(
+                BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
+                    .setSupported(true)
+                    .setServerClientId(getString(R.string.default_web_client_id))
+                    .setFilterByAuthorizedAccounts(true)
+                    .build(),
+            )
+            .build()
 
-            signInClient.getSignInIntent(signInRequest)
-                .addOnSuccessListener { pendingIntent ->
-                    launchSignInWithGoogle(pendingIntent)
-                }
-        }
+        oneTapClient.beginSignIn(oneTapRequest)
+            .addOnSuccessListener { result ->
+                launchSignInWithGoogle(result.pendingIntent)
+            }
+            .addOnFailureListener {
+                //TODO
+                signUpWithGoogle()
+                it.message?.let { it1 -> showErrorAlert(it1) }
+            }
     }
 
-    private fun oneTapSignIn() {
+    private fun signUpWithGoogle() {
         val oneTapRequest = BeginSignInRequest.builder()
             .setGoogleIdTokenRequestOptions(
                 BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
@@ -99,7 +103,7 @@ class SignInFragment : Fragment() {
             )
             .build()
 
-        signInClient.beginSignIn(oneTapRequest)
+        oneTapClient.beginSignIn(oneTapRequest)
             .addOnSuccessListener { result ->
                 launchSignInWithGoogle(result.pendingIntent)
             }
@@ -108,21 +112,21 @@ class SignInFragment : Fragment() {
     private fun launchSignInWithGoogle(pendingIntent: PendingIntent) {
         try {
             val intentSenderRequest = IntentSenderRequest.Builder(pendingIntent).build()
-            signInLauncher.launch(intentSenderRequest)
+            oneTapLauncher.launch(intentSenderRequest)
         } catch (e: IntentSender.SendIntentException) {
-            showSignInWithGoogleErrorAlert()
+            e.message?.let { showErrorAlert(it) }
         }
     }
 
-    private fun handleSignInWithGoogleResult(data: Intent?) {
+    private fun handleOneTapWithGoogleResult(data: Intent?) {
         showProgressBar(true)
         try {
-            val credential = signInClient.getSignInCredentialFromIntent(data)
+            val credential = oneTapClient.getSignInCredentialFromIntent(data)
             credential.googleIdToken?.let {
                 firebaseAuthWithGoogle(it)
             }
         } catch (e: ApiException) {
-            showSignInWithGoogleErrorAlert()
+            e.message?.let { showErrorAlert(it) }
             showProgressBar(false)
         }
     }
@@ -133,7 +137,7 @@ class SignInFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 showProgressBar(false)
                 if (task.isSuccessful) navigateToHomeFragment()
-                else showSignInWithGoogleErrorAlert()
+                else showErrorAlert(getText(R.string.sign_in_with_google_error))
             }
     }
 
@@ -144,11 +148,11 @@ class SignInFragment : Fragment() {
 
         showProgressBar(true)
 
-        Firebase.auth.signInWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 showProgressBar(false)
                 if (it.isSuccessful) navigateToHomeFragment()
-                else showSignInErrorAlert()
+                else showErrorAlert(getText(R.string.sign_in_error))
             }
     }
 
@@ -162,25 +166,5 @@ class SignInFragment : Fragment() {
             directions = directions,
             popUpToDestinationId = R.id.landingPageFragment
         )
-    }
-
-    private fun showSignInWithGoogleErrorAlert() {
-        val builder = AlertDialog.Builder(requireContext())
-
-        builder.setMessage(getText(R.string.sign_in_with_google_error))
-        builder.setPositiveButton(getText(R.string.ok)) { dialog, _ ->
-            dialog.dismiss()
-        }
-        builder.create().show()
-    }
-
-    private fun showSignInErrorAlert() {
-        val builder = AlertDialog.Builder(requireContext())
-
-        builder.setMessage(getText(R.string.sign_in_error))
-        builder.setPositiveButton(getText(R.string.ok)) { dialog, _ ->
-            dialog.dismiss()
-        }
-        builder.create().show()
     }
 }

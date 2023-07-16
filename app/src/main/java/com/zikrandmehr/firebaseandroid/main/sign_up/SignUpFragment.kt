@@ -5,13 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.zikrandmehr.firebaseandroid.R
 import com.zikrandmehr.firebaseandroid.databinding.FragmentSignUpBinding
 import com.zikrandmehr.firebaseandroid.utils.navigateWithDefaultAnimation
+import com.zikrandmehr.firebaseandroid.utils.showErrorAlert
 
 class SignUpFragment : Fragment() {
 
@@ -57,7 +57,7 @@ class SignUpFragment : Fragment() {
                     sendVerificationEmail()
                     navigateToHomeFragment()
                 } else {
-                    showSignUpErrorAlert()
+                    showErrorAlert(getText(R.string.sign_up_error))
                 }
             }
     }
@@ -85,15 +85,5 @@ class SignUpFragment : Fragment() {
             directions = directions,
             popUpToDestinationId = R.id.landingPageFragment
         )
-    }
-
-    private fun showSignUpErrorAlert() {
-        val builder = AlertDialog.Builder(requireContext())
-
-        builder.setMessage(getText(R.string.sign_up_error))
-        builder.setPositiveButton(getText(R.string.ok)) { dialog, _ ->
-            dialog.dismiss()
-        }
-        builder.create().show()
     }
 }

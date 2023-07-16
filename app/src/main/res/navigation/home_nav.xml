@@ -21,6 +21,7 @@
             android:id="@+id/action_homeFragment_to_cloudFirestoreFragment"
             app:destination="@id/cloudFirestoreFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/authenticationFragment"
         android:name="com.zikrandmehr.firebaseandroid.main.home.authentication.AuthenticationFragment"
@@ -35,6 +36,7 @@
             android:id="@+id/action_realtimeDatabaseFragment_to_newNoteFragment"
             app:destination="@id/newNoteFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/newNoteFragment"
         android:name="com.zikrandmehr.firebaseandroid.main.home.realtime_database.new_note.NewNoteFragment"

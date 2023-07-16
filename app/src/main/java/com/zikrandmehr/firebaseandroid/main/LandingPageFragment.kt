@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.zikrandmehr.firebaseandroid.R
 import com.zikrandmehr.firebaseandroid.databinding.FragmentLandingPageBinding
 import com.zikrandmehr.firebaseandroid.utils.navigateWithDefaultAnimation
 
@@ -24,7 +27,9 @@ class LandingPageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews()
+
+        if (checkUser()) navigateToHomeFragment()
+        else setupViews()
     }
 
     override fun onDestroyView() {
@@ -32,11 +37,24 @@ class LandingPageFragment : Fragment() {
         _binding = null
     }
 
+    private fun checkUser(): Boolean {
+        val user = Firebase.auth.currentUser
+        return user != null
+    }
+
     private fun setupViews() {
         binding.apply {
             btnSignIn.setOnClickListener { navigateToSignInFragment() }
             btnSignUp.setOnClickListener { navigateToSignUpFragment() }
         }
+    }
+
+    private fun navigateToHomeFragment() {
+        val directions = LandingPageFragmentDirections.actionLandingPageFragmentToHomeNav()
+        findNavController().navigateWithDefaultAnimation(
+            directions = directions,
+            popUpToDestinationId = R.id.landingPageFragment
+        )
     }
 
     private fun navigateToSignInFragment() {

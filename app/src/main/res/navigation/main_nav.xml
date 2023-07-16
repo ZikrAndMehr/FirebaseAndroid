@@ -12,12 +12,16 @@
         android:label="fragment_landing_page"
         tools:layout="@layout/fragment_landing_page" >
         <action
+            android:id="@+id/action_landingPageFragment_to_home_nav"
+            app:destination="@id/home_nav" />
+        <action
             android:id="@+id/action_landingPageFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
         <action
             android:id="@+id/action_landingPageFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.zikrandmehr.firebaseandroid.main.sign_in.SignInFragment"
@@ -27,6 +31,7 @@
             android:id="@+id/action_signInFragment_to_home_nav"
             app:destination="@id/home_nav" />
     </fragment>
+
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.zikrandmehr.firebaseandroid.main.sign_up.SignUpFragment"

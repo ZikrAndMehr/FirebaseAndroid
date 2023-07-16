@@ -47,6 +47,7 @@
     <string name="no">NO</string>
     <string name="sign_out">Sign Out</string>
     <string name="delete_account">Delete Account</string>
+    <string name="sign_out_error">Something went wrong, please try again!</string>
 
     <!-- RealtimeDatabaseFragment -->
     <string name="realtime_database">Realtime Database</string>

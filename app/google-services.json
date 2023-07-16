@@ -1,48 +1,40 @@
 {
   "project_info": {
-    "project_number": "58275964535",
-    "project_id": "my-firebase-2023",
-    "storage_bucket": "my-firebase-2023.appspot.com"
+    "project_number": "159332404377",
+    "project_id": "my-firebase-zikrandmehr",
+    "storage_bucket": "my-firebase-zikrandmehr.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:58275964535:android:59751aa5f2f623947c8872",
+        "mobilesdk_app_id": "1:159332404377:android:cd70a8b52d975dac86fc08",
         "android_client_info": {
           "package_name": "com.zikrandmehr.firebaseandroid"
         }
       },
       "oauth_client": [
         {
-          "client_id": "58275964535-4id762vcja73enf0bcfsj1tqt9feisnv.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.zikrandmehr.firebaseandroid",
-            "certificate_hash": "325c93f291c19388ba602dc74aa7fe9e7c018eb3"
-          }
-        },
-        {
-          "client_id": "58275964535-4pvg05rk2sl6t0sj3r88d8hvkaosh0gc.apps.googleusercontent.com",
+          "client_id": "159332404377-1bhpuv3rnresuadj67ihcirhb13fceio.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDVMj_LvNVnTvlmR6zK8mqoQUnRFEkCH7k"
+          "current_key": "AIzaSyD5YAJvZemZ-t6xoUQ2GDW5DWEcqyBbIVY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "58275964535-4pvg05rk2sl6t0sj3r88d8hvkaosh0gc.apps.googleusercontent.com",
+              "client_id": "159332404377-1bhpuv3rnresuadj67ihcirhb13fceio.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "58275964535-6c1en64gdtuuv682isncvl135h4ntqi2.apps.googleusercontent.com",
+              "client_id": "159332404377-299kgfplrud7p7qiurkad17sjqvhb0ks.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.zikrandmehr.FirebaseiOS"
+                "bundle_id": "com.zikrandmehr.ios.FirebaseiOS"
               }
             }
           ]

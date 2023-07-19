@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.zikrandmehr.firebaseandroid.R
@@ -76,7 +77,7 @@ class HomeFragment : Fragment() {
             imageView = R.drawable.fb_messaging,
             title = getText(R.string.messaging_title),
             description = getText(R.string.messaging_desc),
-            onClick = { navigateToAuthenticationFragment() }
+            onClick = { Toast.makeText(requireContext(), R.string.coming_soon, Toast.LENGTH_SHORT).show() }
         ),
         HomeItem(
             imageView = R.drawable.fb_crashlytics,

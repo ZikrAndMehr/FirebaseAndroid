@@ -36,6 +36,7 @@
     <string name="crashlytics_desc">Firebase Crashlytics is a lightweight, realtime crash reporter that helps you track, prioritize, and fix stability issues that erode your app quality.</string>
     <string name="remote_config_title">Remote Config</string>
     <string name="remote_config_desc">Firebase Remote Config is a cloud service that lets you change the behavior and appearance of your app without requiring users to download an app update.</string>
+    <string name="coming_soon">Coming Soon</string>
 
     <!-- AuthenticationFragment -->
     <string name="authentication">Authentication</string>

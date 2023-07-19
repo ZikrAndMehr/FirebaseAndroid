@@ -7,6 +7,9 @@ plugins {
 
     //GoogleServices
     id 'com.google.gms.google-services'
+
+    //Crashlytics
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -78,4 +81,8 @@ dependencies {
 
     //Cloud Storage
     implementation("com.google.firebase:firebase-storage-ktx")
+
+    //Crashlytics and Analytics
+    implementation("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }

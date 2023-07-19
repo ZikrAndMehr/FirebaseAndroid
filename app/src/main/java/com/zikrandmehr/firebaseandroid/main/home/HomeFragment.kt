@@ -83,7 +83,7 @@ class HomeFragment : Fragment() {
             imageView = R.drawable.fb_crashlytics,
             title = getText(R.string.crashlytics_title),
             description = getText(R.string.crashlytics_desc),
-            onClick = { navigateToAuthenticationFragment() }
+            onClick = { navigateToCrashlyticsFragment() }
         ),
         HomeItem(
             imageView = R.drawable.fb_remote_config,
@@ -113,6 +113,12 @@ class HomeFragment : Fragment() {
 
     private fun navigateToStorageFragment() {
         val directions = HomeFragmentDirections.actionHomeFragmentToStorageFragment()
+        findNavController().navigateWithDefaultAnimation(directions)
+        resetStatusBarColor()
+    }
+
+    private fun navigateToCrashlyticsFragment() {
+        val directions = HomeFragmentDirections.actionHomeFragmentToCrashlyticsFragment()
         findNavController().navigateWithDefaultAnimation(directions)
         resetStatusBarColor()
     }

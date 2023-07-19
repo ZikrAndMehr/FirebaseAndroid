@@ -73,4 +73,10 @@
     <string name="image_url">Image URL</string>
     <string name="copy">Copy</string>
 
+    <!-- CrashlyticsFragment -->
+    <string name="crashlytics">Crashlytics</string>
+    <string name="crash_1">Make a manual Crash 1</string>
+    <string name="crash_2">Make a manual Crash 2</string>
+    <string name="crash_3">Make a manual Crash 3</string>
+
 </resources>

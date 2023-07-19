@@ -70,7 +70,7 @@ class HomeFragment : Fragment() {
             imageView = R.drawable.fb_storage,
             title = getText(R.string.storage_title),
             description = getText(R.string.storage_desc),
-            onClick = { navigateToAuthenticationFragment() }
+            onClick = { navigateToStorageFragment() }
         ),
         HomeItem(
             imageView = R.drawable.fb_messaging,
@@ -106,6 +106,12 @@ class HomeFragment : Fragment() {
 
     private fun navigateToCloudFirestoreFragment() {
         val directions = HomeFragmentDirections.actionHomeFragmentToCloudFirestoreFragment()
+        findNavController().navigateWithDefaultAnimation(directions)
+        resetStatusBarColor()
+    }
+
+    private fun navigateToStorageFragment() {
+        val directions = HomeFragmentDirections.actionHomeFragmentToStorageFragment()
         findNavController().navigateWithDefaultAnimation(directions)
         resetStatusBarColor()
     }

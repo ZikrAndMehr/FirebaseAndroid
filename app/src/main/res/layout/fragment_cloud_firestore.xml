@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout"
+                android:id="@+id/constraint_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dimen_double"
@@ -81,7 +81,6 @@
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dimen_single"
@@ -133,7 +132,7 @@
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toTopOf="@+id/btn_update"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/constraint_layout" />
 
             <Button
                 android:id="@+id/btn_update"

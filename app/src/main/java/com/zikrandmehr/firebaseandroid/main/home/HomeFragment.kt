@@ -89,7 +89,7 @@ class HomeFragment : Fragment() {
             imageView = R.drawable.fb_remote_config,
             title = getText(R.string.remote_config_title),
             description = getText(R.string.remote_config_desc),
-            onClick = { navigateToAuthenticationFragment() }
+            onClick = { Toast.makeText(requireContext(), R.string.coming_soon, Toast.LENGTH_SHORT).show() }
         )
     )
 

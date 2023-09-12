@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
@@ -66,6 +67,9 @@ class SignInFragment : Fragment() {
             etEmail.setText("android01@new.com")
             etPassword.setText("Welcome1.")
             btnSignInWithGoogle.setOnClickListener { signInWithGoogle() }
+            btnSignInWithFacebook.setOnClickListener {
+                Toast.makeText(requireContext(), R.string.coming_soon, Toast.LENGTH_SHORT).show()
+            }
             btnSignIn.setOnClickListener { signIn() }
         }
     }

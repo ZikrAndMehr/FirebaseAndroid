@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,9 +12,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/dimen_double"
-        android:layout_marginTop="@dimen/dimen_double"
-        android:layout_marginEnd="@dimen/dimen_double"
+        android:layout_margin="@dimen/dimen_double"
         android:backgroundTint="@color/firebase_orange"
         app:cardCornerRadius="@dimen/dimen_double"
         app:cardElevation="@null"
